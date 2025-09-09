@@ -8,8 +8,11 @@
 
   <ItemGroup>
     <Folder Include="DataTransferObjects\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\TemplateMultTenaBackend.Domain\TemplateMultTenaBackend.Domain.csproj" />
+		<ProjectReference Include="..\TemplateMultTenaBackend.Infrastructure\TemplateMultTenaBackend.Infrastructure.csproj" />
+	</ItemGroup>
 </Project>

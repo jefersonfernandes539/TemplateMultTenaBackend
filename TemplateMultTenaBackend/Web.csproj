@@ -21,10 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TemplateMultTenaBackend.Application\TemplateMultTenaBackend.Application.csproj" />
     <ProjectReference Include="..\TemplateMultTenaBackend.Domain\TemplateMultTenaBackend.Domain.csproj" />
     <ProjectReference Include="..\TemplateMultTenaBackend.Infrastructure\TemplateMultTenaBackend.Infrastructure.csproj" />
