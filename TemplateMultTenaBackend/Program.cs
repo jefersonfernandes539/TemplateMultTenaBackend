@@ -2,9 +2,9 @@ using TemplateMultTenaBackend.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.ConfigureCors();
+builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureRepositoryContext(builder.Configuration);
 builder.Services.ConfigureIdentity();
 builder.Services.AddJwtConfiguration(builder.Configuration);

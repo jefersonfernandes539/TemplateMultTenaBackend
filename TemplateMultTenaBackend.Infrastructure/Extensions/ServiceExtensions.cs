@@ -1,15 +1,18 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 using TemplateMultTenaBackend.Domain.ConfigurationModels;
 using TemplateMultTenaBackend.Domain.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using TemplateMultTenaBackend.Infrastructure.Persistence;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using TemplateMultTenaBackend.Domain.Exceptions.Unauthorized;
+using TemplateMultTenaBackend.Domain.Interfaces;
+using TemplateMultTenaBackend.Infrastructure.Persistence;
+using TemplateMultTenaBackend.Domain.S;
+using TemplateMultTenaBackend.Infrastructure.Repository;
 
 
 namespace TemplateMultTenaBackend.Infrastructure.Extensions
@@ -25,7 +28,8 @@ namespace TemplateMultTenaBackend.Infrastructure.Extensions
                 .AllowAnyHeader()
                 .WithExposedHeaders("X-Pagination"));
         });
-
+        public static void ConfigureRepositoryManager(this IServiceCollection services) => services.AddScoped<IRepositoryManager, RepositoryManager>();
+        public static void ConfigureServiceManager(this IServiceCollection services) => services.AddScoped<IServiceManager, ServiceManager>();
         public static void ConfigureRepositoryContext(this IServiceCollection services, IConfiguration configuration) => services.AddDbContext<ApplicationDbContext>(
                 opts => opts.UseNpgsql(configuration.GetConnectionString("Postgres"))
             );

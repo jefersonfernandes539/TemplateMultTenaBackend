@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TemplateMultTenaBackend.Application.Attributes;
+using TemplateMultTenaBackend.Domain.Attributes;
 
 namespace TemplateMultTenaBackend.Domain.Entities
 {
